@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <button onclick="showPage('home-page')">Home</button>
+        <button onclick="showPage('food-page')">Food</button>
+        <button onclick="showPage('cart-page')">Cart</button>
+        <button onclick="showPage('checkout-page')">Checkout</button>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home-page" class="page">
+        <header>
+            <h1>Hey there!</h1>
+            <p>Ready to order?</p>
+            <input type="text" placeholder="Search food..." id="search-bar">
+        </header>
+
+        <div class="categories">
+            <button class="active">All</button>
+            <button>Chat</button>
+            <button>Beverages</button>
+            <button>Desserts</button>
+        </div>
+
+        <div id="food-list" class="food-items">
+            <!-- Food items will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <!-- Food Page (placeholder, handled by dynamic content if needed) -->
+    <div id="food-page" class="page" style="display:none;">
+        <h2>Food Details</h2>
+        <p>Details will appear when a food is clicked (optional enhancement)</p>
+    </div>
+
+    <!-- Cart Page -->
+    <div id="cart-page" class="page" style="display:none;">
+        <h2>My Cart</h2>
+        <div id="cart-items"></div>
+        <input type="text" placeholder="Enter coupon code" id="coupon">
+        <div id="price-summary"></div>
+        <button onclick="showPage('checkout-page')">Proceed to Pay</button>
+    </div>
+
+    <!-- Checkout Page -->
+    <div id="checkout-page" class="page" style="display:none;">
+        <h2>Checkout</h2>
+        <form id="checkout-form">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="mobile" placeholder="Mobile Number" required>
+            <input type="text" name="city" placeholder="City" required>
+            <input type="text" name="zipcode" placeholder="Zipcode" required>
+            <input type="text" name="address" placeholder="Address" required>
+
+            <h3>Delivery Time</h3>
+            <label><input type="radio" name="delivery" value="Deliver Now" checked> Deliver Now (15-30 min)</label>
+            <label><input type="radio" name="delivery" value="Schedule Delivery"> Schedule Delivery</label>
+
+            <h3>Payment Method</h3>
+            <label><input type="radio" name="payment" value="Cash on delivery" checked> Cash on delivery</label>
+            <label><input type="radio" name="payment" value="UPI"> UPI</label>
+            <label><input type="radio" name="payment" value="Debit/Credit Card"> Debit/Credit Card</label>
+            <label><input type="radio" name="payment" value="Wallet"> Wallet</label>
+
+            <button type="submit">Confirm Order</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Simple page navigation
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
