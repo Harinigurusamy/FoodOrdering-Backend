@@ -7,8 +7,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const foodRoutes = require("./routes/foodRoutes");
-app.use("/api/foods", foodRoutes);
+const foodroutes = require("./routes/foodroutes");
+app.use("/api/foods", foodroutes);
 
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("✅ MongoDB Connected successfully"))
